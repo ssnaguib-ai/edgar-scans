@@ -13,3 +13,9 @@ __pycache__/
 
 # Local config — contains a real email address for the SEC User-Agent
 scan.config
+
+# Only dated scan output (live_YYYY-MM-DD.csv) is published. These are local
+# scratch outputs: clusters.csv is the fixture-mode example from README.md,
+# live.csv an earlier ad-hoc run.
+clusters.csv
+live.csv
