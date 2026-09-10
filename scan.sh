@@ -45,6 +45,14 @@ fi
 # Accept either remote form: git@github.com:owner/repo.git or
 # https://github.com/owner/repo.git
 SLUG=$(echo "$REMOTE" | sed -E 's#^(git@github\.com:|https://github\.com/)##; s#\.git$##')
+# raw.githubusercontent.com only serves GitHub repos, and the slug must be
+# exactly owner/repo. Without this check a non-GitHub or malformed remote
+# yields a plausible-looking URL that 404s.
+if ! echo "$SLUG" | grep -qE '^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$'; then
+    echo "Remote '$REMOTE' is not a github.com repo — cannot build a raw URL." >&2
+    echo "$OUT is written locally but not published." >&2
+    exit 1
+fi
 BRANCH=$(git branch --show-current)
 
 git add "$OUT"
