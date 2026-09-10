@@ -1,0 +1,15 @@
+# Virtualenv
+.venv/
+
+# EDGAR response cache — thousands of files, regenerated on demand
+.edgar_cache/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Local config — contains a real email address for the SEC User-Agent
+scan.config

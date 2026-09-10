@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+  <documentType>4</documentType>
+  <periodOfReport>2026-08-18</periodOfReport>
+  <issuer>
+    <issuerCik>0000888888</issuerCik>
+    <issuerName>LONECO INC</issuerName>
+    <issuerTradingSymbol>LONE</issuerTradingSymbol>
+  </issuer>
+  <reportingOwner>
+    <reportingOwnerId><rptOwnerCik>0005555555</rptOwnerCik><rptOwnerName>LEE SAM</rptOwnerName></reportingOwnerId>
+    <reportingOwnerRelationship><isDirector>1</isDirector><isOfficer>0</isOfficer></reportingOwnerRelationship>
+  </reportingOwner>
+  <nonDerivativeTable>
+    <nonDerivativeTransaction>
+      <securityTitle><value>Common Stock</value></securityTitle>
+      <transactionDate><value>2026-08-18</value></transactionDate>
+      <transactionCoding><transactionFormType>4</transactionFormType><transactionCode>P</transactionCode></transactionCoding>
+      <transactionAmounts>
+        <transactionShares><value>5000</value></transactionShares>
+        <transactionPricePerShare><value>17.25</value></transactionPricePerShare>
+        <transactionAcquiredDisposedCode><value>A</value></transactionAcquiredDisposedCode>
+      </transactionAmounts>
+      <postTransactionAmounts><sharesOwnedFollowingTransaction><value>55000</value></sharesOwnedFollowingTransaction></postTransactionAmounts>
+    </nonDerivativeTransaction>
+  </nonDerivativeTable>
+</ownershipDocument>

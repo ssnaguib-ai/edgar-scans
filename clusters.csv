@@ -1,0 +1,2 @@
+ticker,issuer,issuer_cik,buyer_count,total_value,titles,first_date,last_date,max_pct_of_holdings,has_officer,has_10b5_1,filing_urls
+EXIN,EXAMPLE INDUSTRIES INC,0000320193,3,1539300.0,Chief Executive Officer; Chief Financial Officer; Director,2026-08-14,2026-08-25,0.4,True,True,cluster_ceo_buy.xml | cluster_cfo_buy.xml | cluster_with_10b5_1.xml

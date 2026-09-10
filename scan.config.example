@@ -1,0 +1,6 @@
+# Copy to scan.config and fill in. scan.config is gitignored so your address
+# is not published.
+#
+# SEC requires a User-Agent containing a real name and email on every request;
+# without one the API returns HTTP 403. See README.md.
+USER_AGENT="Your Name you@yourfirm.com"

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+  <documentType>4</documentType>
+  <periodOfReport>2026-08-19</periodOfReport>
+  <issuer>
+    <issuerCik>0000888888</issuerCik>
+    <issuerName>LONECO INC</issuerName>
+    <issuerTradingSymbol>LONE</issuerTradingSymbol>
+  </issuer>
+  <reportingOwner>
+    <reportingOwnerId><rptOwnerCik>0006666666</rptOwnerCik><rptOwnerName>PATEL NINA</rptOwnerName></reportingOwnerId>
+    <reportingOwnerRelationship><isDirector>0</isDirector><isOfficer>1</isOfficer><officerTitle>COO</officerTitle></reportingOwnerRelationship>
+  </reportingOwner>
+  <derivativeTable>
+    <derivativeTransaction>
+      <securityTitle><value>Employee Stock Option</value></securityTitle>
+      <transactionDate><value>2026-08-19</value></transactionDate>
+      <transactionCoding><transactionFormType>4</transactionFormType><transactionCode>P</transactionCode></transactionCoding>
+      <transactionAmounts>
+        <transactionShares><value>10000</value></transactionShares>
+        <transactionPricePerShare><value>1.00</value></transactionPricePerShare>
+        <transactionAcquiredDisposedCode><value>A</value></transactionAcquiredDisposedCode>
+      </transactionAmounts>
+    </derivativeTransaction>
+  </derivativeTable>
+</ownershipDocument>

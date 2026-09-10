@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+  <documentType>4</documentType>
+  <periodOfReport>2026-08-25</periodOfReport>
+  <issuer>
+    <issuerCik>0000320193</issuerCik>
+    <issuerName>EXAMPLE INDUSTRIES INC</issuerName>
+    <issuerTradingSymbol>EXIN</issuerTradingSymbol>
+  </issuer>
+  <reportingOwner>
+    <reportingOwnerId><rptOwnerCik>0007777777</rptOwnerCik><rptOwnerName>CHAN WEI</rptOwnerName></reportingOwnerId>
+    <reportingOwnerRelationship><isDirector>1</isDirector><isOfficer>0</isOfficer></reportingOwnerRelationship>
+  </reportingOwner>
+  <aff10b5One>1</aff10b5One>
+  <nonDerivativeTable>
+    <nonDerivativeTransaction>
+      <securityTitle><value>Common Stock</value></securityTitle>
+      <transactionDate><value>2026-08-25</value></transactionDate>
+      <transactionCoding><transactionFormType>4</transactionFormType><transactionCode>P</transactionCode></transactionCoding>
+      <transactionAmounts>
+        <transactionShares><value>3000</value></transactionShares>
+        <transactionPricePerShare><value>44.00</value></transactionPricePerShare>
+        <transactionAcquiredDisposedCode><value>A</value></transactionAcquiredDisposedCode>
+      </transactionAmounts>
+      <postTransactionAmounts><sharesOwnedFollowingTransaction><value>33000</value></sharesOwnedFollowingTransaction></postTransactionAmounts>
+    </nonDerivativeTransaction>
+  </nonDerivativeTable>
+  <footnotes><footnote id="F1">Purchase made pursuant to a Rule 10b5-1 trading plan adopted on May 1, 2026.</footnote></footnotes>
+</ownershipDocument>
