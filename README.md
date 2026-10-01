@@ -1,3 +1,5 @@
+> **RETIRED 2026-10-01.** This project is no longer maintained or used for investment decisions. The scoring rubric was never validated (see the project's own learnings); the two components with a proven basis, the solvency gate and the concentration check, live on in the RIA Engine. Kept public as a reference implementation of an EDGAR Form 4 cluster-buy screen. Scan output is not updated.
+
 # EDGAR Insider Cluster-Buy Screen
 
 Detects companies where **2 or more distinct insiders made open-market purchases**
