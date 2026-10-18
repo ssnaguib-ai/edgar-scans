@@ -195,7 +195,8 @@ class Fetcher:
         the cache makes a re-run resume rather than restart.
         """
         cached = self._cache_path(url)
-        if cached.exists():
+        if cached.exists() and ("data.sec.gov/" not in url or
+                                time.time() - cached.stat().st_mtime < 3600):
             self.hits += 1
             return cached.read_bytes()
 
@@ -207,8 +208,7 @@ class Fetcher:
                 resp = session.get(url, timeout=30)
             except Exception as exc:  # noqa: BLE001
                 if attempt == len(BACKOFF_SCHEDULE_SEC):
-                    print(f"  ! network error {url}: {exc}", file=sys.stderr)
-                    return None
+                    raise RuntimeError(f"Network retries exhausted for {url}: {exc}") from exc
                 self.retries += 1
                 delay = BACKOFF_SCHEDULE_SEC[attempt - 1]
                 print(f"  ! network error ({exc}) — retrying in {delay}s "
@@ -246,8 +246,7 @@ class Fetcher:
                 time.sleep(delay)
                 continue
 
-            print(f"  ! HTTP {resp.status_code} {url}", file=sys.stderr)
-            return None
+            raise RuntimeError(f"Unexpected HTTP {resp.status_code} for {url}")
 
         return None
 
@@ -682,7 +681,7 @@ def scan_live(fetcher: Fetcher, start: date, end: date) -> list[dict]:
             for u in urls:
                 raw = fetcher.get(u)
                 if not raw:
-                    continue
+                    raise RuntimeError(f"Indexed filing could not be retrieved: {u}")
                 xml = extract_xml_from_submission(raw)
                 if xml:
                     txns.extend(parse_form4(xml, source_url=u))
@@ -732,12 +731,16 @@ def main() -> int:
     add_offering_crossref(clusters, fetcher)
     assign_confidence(clusters)
 
+    # Always replace the output, including a valid zero-result scan. Atomic
+    # replacement prevents a failed write leaving a publishable partial CSV.
+    temporary = args.out.with_suffix(args.out.suffix + ".tmp")
+    with temporary.open("w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=OUTPUT_COLUMNS)
+        w.writeheader()
+        w.writerows(clusters)
+    temporary.replace(args.out)
+    print(f"Wrote {args.out}")
     if clusters:
-        with args.out.open("w", newline="") as fh:
-            w = csv.DictWriter(fh, fieldnames=OUTPUT_COLUMNS)
-            w.writeheader()
-            w.writerows(clusters)
-        print(f"Wrote {args.out}")
         tally = Counter(c["confidence"] for c in clusters)
         print("  " + "  ".join(f"{k}={tally[k]}" for k in CONFIDENCE_ORDER
                                if tally[k]))

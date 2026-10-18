@@ -19,3 +19,8 @@ scan.config
 # live.csv an earlier ad-hoc run.
 clusters.csv
 live.csv
+
+# Private research workflow, evidence, preferences and reports
+research/
+.claude/
+CLAUDE.md
